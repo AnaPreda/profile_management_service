@@ -16,7 +16,7 @@ defmodule ProfileManagementService.Endpoint do
   )
 
   plug(:dispatch)
-  
+
   match _ do
     send_resp(conn, 404, "Page not found!")
   end
