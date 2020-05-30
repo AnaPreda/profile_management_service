@@ -20,5 +20,10 @@ defmodule ProfileManagementService.Profile do
     |> cast(params, @fields)
     |> validate_required([:username, :email_address, :first_name, :last_name])
   end
+  
+  def create(params) do
+    cs = changeset(%Profile{}, params)
+    Repo.insert(cs)
+  end
 
 end
