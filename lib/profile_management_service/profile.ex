@@ -26,4 +26,9 @@ defmodule ProfileManagementService.Profile do
     Repo.insert(cs)
   end
 
+  def update(data, params) do
+    post = changeset(data, params)
+    Repo.update(post)
+  end
+  
 end
