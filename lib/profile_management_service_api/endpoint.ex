@@ -33,43 +33,43 @@ defmodule ProfileManagementService.Endpoint do
     end
   end 
   
-  post "/create_profile" do
-    {username, email_address, first_name, last_name} = {
-      Map.get(conn.params, "username", nil),
-      Map.get(conn.params, "email_address", nil),
-      Map.get(conn.params, "first_name", nil),
-      Map.get(conn.params, "last_name", nil)
-    }
-    cond do
-      is_nil(username) ->
-        conn
-        |> put_status(400)
-        |> assign(:jsonapi, %{"error" => "'username' field must be provided"})
-      is_nil(email_address) ->
-        conn
-        |> put_status(400)
-        |> assign(:jsonapi, %{"error" => "'email_address' field must be provided"})
-      is_nil(first_name) ->
-        conn
-        |> put_status(400)
-        |> assign(:jsonapi, %{"error" => "'first_name' field must be provided"})
-      is_nil(last_name) ->
-        conn
-        |> put_status(400)
-        |> assign(:jsonapi, %{"error" => "'last_name' field must be provided"})
-      true ->
-        case Profile.create(%{"username" => username, "email_address" => email_address, "first_name" => first_name, "last_name" => last_name}) do
-          {:ok, new_profile}->
-            conn
-            |> put_resp_content_type("application/json")
-            |> send_resp(201, Poison.encode!(%{:data => new_profile}))
-          :error ->
-            conn
-            |> put_resp_content_type("application/json")
-            |> send_resp(500, Poison.encode!(%{"error" => "An unexpected error happened"}))
-        end
-    end
-  end
+#  post "/create_profile" do
+#    {username, email_address, first_name, last_name} = {
+#      Map.get(conn.params, "username", nil),
+#      Map.get(conn.params, "email_address", nil),
+#      Map.get(conn.params, "first_name", nil),
+#      Map.get(conn.params, "last_name", nil)
+#    }
+#    cond do
+#      is_nil(username) ->
+#        conn
+#        |> put_status(400)
+#        |> assign(:jsonapi, %{"error" => "'username' field must be provided"})
+#      is_nil(email_address) ->
+#        conn
+#        |> put_status(400)
+#        |> assign(:jsonapi, %{"error" => "'email_address' field must be provided"})
+#      is_nil(first_name) ->
+#        conn
+#        |> put_status(400)
+#        |> assign(:jsonapi, %{"error" => "'first_name' field must be provided"})
+#      is_nil(last_name) ->
+#        conn
+#        |> put_status(400)
+#        |> assign(:jsonapi, %{"error" => "'last_name' field must be provided"})
+#      true ->
+#        case Profile.create(%{"username" => username, "email_address" => email_address, "first_name" => first_name, "last_name" => last_name}) do
+#          {:ok, new_profile}->
+#            conn
+#            |> put_resp_content_type("application/json")
+#            |> send_resp(201, Poison.encode!(%{:data => new_profile}))
+#          :error ->
+#            conn
+#            |> put_resp_content_type("application/json")
+#            |> send_resp(500, Poison.encode!(%{"error" => "An unexpected error happened"}))
+#        end
+#    end
+#  end
 
   match _ do
     send_resp(conn, 404, "Page not found!")

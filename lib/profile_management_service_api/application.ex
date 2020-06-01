@@ -12,6 +12,12 @@ defmodule ProfileManagementService.Application do
       {Plug.Adapters.Cowboy2, scheme: :http,
         plug: ProfileManagementService.Endpoint, options: [port: 4000]},
       ProfileManagementService.Repo,
+      %{
+        id: ProfileManagementService.Receive,
+        start: {ProfileManagementService.Receive, :start_link, []}
+      }
+
+
     ]
   end
 
