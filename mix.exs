@@ -43,6 +43,7 @@ defmodule ProfileManagementService.MixProject do
       {:cors_plug, "~> 1.5"},
       {:postgrex, "~> 0.15"},
       {:amqp, "~> 1.0"},
+      {:httpotion, "~> 3.1.0"}
     ]
   end
   defp aliases do

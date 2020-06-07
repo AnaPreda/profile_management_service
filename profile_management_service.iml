@@ -23,6 +23,8 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gettext" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/goldrush" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/hackney" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/httpotion" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/ibrowse" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/idna" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/jason" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/joken" />
@@ -113,5 +115,7 @@
     <orderEntry type="library" name="amqp" level="project" />
     <orderEntry type="library" name="amqp_client" level="project" />
     <orderEntry type="library" name="mixunit" level="project" />
+    <orderEntry type="library" name="httpotion" level="project" />
+    <orderEntry type="library" name="ibrowse" level="project" />
   </component>
 </module>

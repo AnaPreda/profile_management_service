@@ -7,7 +7,8 @@ config :profile_management_service,
        jwt_validity: 3600,
        api_host: "localhost",
        api_version: "2",
-       api_prefix: "http"
+       api_prefix: "http",
+       um_url: "https://myblog-um.gigalixirapp.com"
 #
 config :profile_management_service, ProfileManagementService.Endpoint,
        url: [host: "localhost"]
