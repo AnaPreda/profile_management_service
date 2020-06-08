@@ -98,4 +98,12 @@ defmodule ProfileManagementService.Router do
     end
   end
 
+  delete "/admin/delete_all" do
+#    Repo.all(from post in Post, where: post.author == ^author)
+    Repo.delete_all(Profile)
+        conn
+        |> put_resp_content_type("application/json")
+        |> send_resp(200, Poison.encode!(%{:message => "deleted"}))
+  end
+
 end
